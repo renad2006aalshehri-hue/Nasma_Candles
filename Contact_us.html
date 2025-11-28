@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا - Nasma Candle</title>
+<style>
+body {
+    background-color: #FFF5E6;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+h1 {
+    color: #E2725B;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #F4E1C1;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+button {
+    background-color: #FFC0CB;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #F4E1C1;
+    color: #333333;
+}
+.contact-info {
+    font-size: 16px;
+    color: #556B2F;
+    margin-top: 25px;
+}
+.menu-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+.menu-bars {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.menu-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.menu-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+</style>
+</head>
+<body>
+
+<div class="menu-container" id="menuButton">
+    <div class="menu-bars"></div>
+    <div class="menu-bars"></div>
+    <div class="menu-bars"></div>
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="index.html3.html">الصفحة الرئيسية</a>
+        <a href="About_us.html">من نحن</a>
+        <a href="Contact_us.html">اتصل بنا</a>
+        <a href="Cart.html">السلة</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>تواصل معنا</h1>
+    <p>يسعدنا دائمًا الاستماع إليكم! املأ النموذج أدناه وسنعود إليك قريبًا.</p>
+    
+    <form>
+        <input type="text" name="name" placeholder="الاسم" required>
+        <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+        <input type="text" name="subject" placeholder="الموضوع">
+        <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+        <button type="submit">إرسال</button>
+    </form>
+    
+    <p class="contact-info">أو تواصل معنا عبر البريد الإلكتروني: <strong>info@nasma-candle.com</strong></p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menuButton');
+    const dropdown = document.getElementById('menuDropdown');
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+    document.addEventListener('click', () => {
+        dropdown.style.display = "none";
+    });
+});
+</script>
+
+</body>
+</html>

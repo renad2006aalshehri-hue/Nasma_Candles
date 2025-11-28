@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>السلة</title>
+<style>
+body {
+  font-family: sans-serif;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+.menu-bars {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.menu-dropdown {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.menu-dropdown a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.menu-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+.cart-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.cart-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+.cart-item-details {
+  flex: 1;
+}
+.cart-item-details h3 {
+  margin: 0 0 10px 0;
+}
+.cart-item-details p {
+  margin: 0;
+  color: #555;
+}
+.remove-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #c00;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.total {
+  text-align: right;
+  font-size: 22px;
+  margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-bars" id="bar1"></div>
+  <div class="menu-bars" id="bar2"></div>
+  <div class="menu-bars" id="bar3"></div>
+</div>
+
+<div class="menu-dropdown" id="menuDropdown">
+  <a href="index.html3.html">الصفحة الرئيسية</a>
+  <a href="About_us.html">من نحن</a>
+  <a href="Contact_us.html">اتصل بنا</a>
+  <a href="Cart.html">السلة</a>
+</div>
+
+<h1>السلة</h1>
+<div class="cart-container" id="cartContainer"></div>
+<div class="total" id="totalPrice">الإجمالي: 0 ريال</div>
+
+<script>
+const menuBars = document.querySelectorAll('.menu-bars');
+const dropdown = document.getElementById('menuDropdown');
+
+menuBars.forEach(bar => {
+  bar.addEventListener('click', () => {
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  });
+});
+
+const products = [
+  { name: "Blush Pink", price: 250, img: "candle1.jpg" },
+  { name: "Warm Cream", price: 270, img: "candle2.jpg" },
+  { name: "Sand Beige", price: 260, img: "candle3.jpg" },
+  { name: "Terracotta", price: 280, img: "candle4.jpg" },
+  { name: "Olive Green", price: 300, img: "candle5.jpg" },
+  { name: "Charcoal Black", price: 320, img: "candle6.jpg" }
+];
+
+const cartContainer = document.getElementById('cartContainer');
+const totalPriceEl = document.getElementById('totalPrice');
+
+function updateCart() {
+  cartContainer.innerHTML = "";
+  let total = 0;
+  products.forEach((product, index) => {
+    total += product.price;
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+    item.innerHTML = `
+      <img src="${product.img}" alt="${product.name}">
+      <div class="cart-item-details">
+        <h3>${product.name}</h3>
+        <p>السعر: ${product.price} ريال</p>
+      </div>
+      <button class="remove-btn" onclick="removeItem(${index})">إزالة</button>
+    `;
+    cartContainer.appendChild(item);
+  });
+  totalPriceEl.textContent = `الإجمالي: ${total} ريال`;
+}
+
+function removeItem(index) {
+  products.splice(index, 1);
+  updateCart();
+}
+
+updateCart();
+</script>
+
+</body>
+</html>

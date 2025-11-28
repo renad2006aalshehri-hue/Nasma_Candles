@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>من نحن - Nasma Candle</title>
+<style>
+body {
+    background-color: #FFF5E6;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+h1 {
+    color: #E2725B;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+.candle-image {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.candle-image:hover {
+    transform: scale(1.05);
+}
+.footer-text {
+    font-size: 16px;
+    color: #556B2F;
+    margin-top: 20px;
+}
+.menu-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+.menu-bars {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.menu-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.menu-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+</style>
+</head>
+<body>
+
+<div class="menu-container" id="menuButton">
+    <div class="menu-bars"></div>
+    <div class="menu-bars"></div>
+    <div class="menu-bars"></div>
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="index.html3.html">الصفحة الرئيسية</a>
+        <a href="About_us.html">من نحن</a>
+        <a href="Contact_us.html">اتصل بنا</a>
+        <a href="Cart.html">السلة</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>مرحبًا بكم في Nasma Candle!</h1>
+    <p>
+    في <strong>Nasma Candle</strong>، كل شمعة تروي قصة. شمعاتنا تُصنع بعناية لتضيف الدفء والجمال لكل لحظة في منزلكم، مع عبير وأناقة لا تُنسى. نحن هنا لإضاءة خيالك وإضفاء لمسة من السحر على كل ركن.
+    </p>
+    <img src="Candles7.jpg" 
+         alt="" class="candle-image">
+    <p class="footer-text">
+        انضم إلى عالم <strong>Nasma Candle</strong>، ودع لحظاتك تتألق مع ضوء الشموع الساحر!
+    </p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menuButton');
+    const dropdown = document.getElementById('menuDropdown');
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+    document.addEventListener('click', () => {
+        dropdown.style.display = "none";
+    });
+});
+</script>
+
+</body>
+</html>
